@@ -1,0 +1,94 @@
+
+function [L, D, LT] = myldlt(A)
+
+if A==A' then //Matrice symétrique
+n = size(A,"r")
+
+// On sélectionne les sous matrices au déterminant différent de 0
+for i = 1:n
+    if det(A(i,1))==0
+        disp("Impossible")
+else
+
+
+d = zeros(n,1)
+v = zeros(n,1)
+L = tril(A)
+
+for j = 1:n
+    for k = 1:j-1
+        d(j) = A(j,j) - cumsum(d(k) * L(j,k)**2);
+        v(j,1) = d(j,1) * L(j,k);
+    end
+    d(j) = A(j,j) - L(j,1:j-1) * v(1:j-1);
+    L(j+1:n,j) = (A(j+1:n,j) - L(j+1:n,1:j-1) * v(1:j-1)) / d(j);
+end
+
+
+
+for i=1:n
+    L(i,i) = 1
+end
+D = diag(d)
+LT = L'
+
+end
+end
+end
+endfunction
+
+--------------------------------------
+function[X,Y]=mesures()
+
+     X=[100:1000]
+     Y=zeros(1,900)
+
+for i = 100:1000
+    tic()
+    A = rand(i,i)
+    [L, D, LT] = myldlt(A)
+    t = toc()
+    Y(1,i)=t
+end
+
+plot2d(X,Y);
+endfunction
+
+----------------------------------------
+
+function[] = test_myldlt(A)
+A = rand(3,3)
+[L,D,LT] = myldlt(A)
+disp(L*D*LT)
+disp(A)
+err_comm = norm((A-L*D*LT) / A)
+disp(err_comm)
+
+endfunction
+-----------------------------------------
+
+#include <stdio.h>
+
+
+typedef
+struct MatriceCSR{
+int n; // taille de la matrice
+int nnz; // nombre d'elements non nuls (juste pour acces rapide car nnz = IA[n])
+int* IA; // pointeur des debuts de lignes dans VA
+int* JA; // indices de colonne
+double* VA; // valeurs non nulles
+}MatriceCSR;
+
+
+//Construction de la matrice creuse a partir d'une matrice pleine
+//On ne retient que les entrees A(i,j) telles que |A(i,j)| > epsi
+MatriceCSR* MatriceCSR_cree(const gsl_matrix* A, double epsi);
+
+//Liberation des ressources
+MatriceCSR_libere(void * sm);
+
+//Produit matrice vecteur : y = A * x
+MatriceCSR_matvect(const MatriceCSR* A, const gsl_vector* x, gsl_vector* y);
+
+
+
