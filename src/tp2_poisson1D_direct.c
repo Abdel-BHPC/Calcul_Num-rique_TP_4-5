@@ -68,6 +68,7 @@ int main(int argc,char *argv[])
   //la fonction Blas DGBMV effectue l'une des opérations matrice-vecteur : y := alpha*A*x + beta*y
   
   //Nous avons liberé et redéfinir notre tableau AB et on prend kv=0
+ 
   kv=0;
   free(AB);
   AB = (double *) malloc(sizeof(double)*lab*la);
@@ -93,7 +94,7 @@ int main(int argc,char *argv[])
    
    */ 
   }    
-
+/*
   
   printf("\n INFO DGBSV = %d\n",info);
 

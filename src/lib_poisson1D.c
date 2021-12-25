@@ -7,8 +7,8 @@
 
 void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la){
 
-  //done
-  
+//done
+//-----------Format de stockage ligne rowMajor-----------------------
   int u =0;
   while (u< *la)
   {

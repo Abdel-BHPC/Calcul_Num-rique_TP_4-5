@@ -20,21 +20,20 @@ function [x, errl, k] = Gss_Seidel(A, b, tol, itmax)
     for i = 2:n
       E(i, i - 1) = - A(i, i - 1);
 	end
-	DE = inv(D - E);
+	SB = inv(D - E);
 	x0 = zeros(n, 1);
 
 	errl=zeros(itmax,1);
    
-    res = b-A*x0;
-    relres = norm(res)/norm(b);
+    r = b-A*x0;
+    relres = norm(r)/norm(b);
     
     for k = 1:itmax-1 
-		x = x0 + DE * res;
+		x = x0 + SB * res;
         x0=x
 		r = (b - A * x0);
 
-		res = b-A*x0;
-        relres = norm(res)/norm(b);
+        relres = norm(r)/norm(b);
         if relres<tol
            break
         end

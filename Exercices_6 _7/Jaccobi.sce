@@ -15,15 +15,15 @@ function [x, errl, k] = Jaccobi(A,b,tol,itmax)
     x0 = zeros(n,1);
     errl=zeros(itmax,1);
    
-    res = b-A*x0;
-    relres = norm(res)/norm(b);
+    r = b-A*x0;
+    relres = norm(r)/norm(b);
     D = (1.)./diag(A);
     
     for k = 1:itmax-1    
-        x = x0 + D.*res;
+        x = x0 + D.*r;
         x0 = x;
-        res = b-A*x0;
-        relres = norm(res)/norm(b);
+        r = b-A*x0;
+        relres = norm(r)/norm(b);
         if relres<tol
            break
         end

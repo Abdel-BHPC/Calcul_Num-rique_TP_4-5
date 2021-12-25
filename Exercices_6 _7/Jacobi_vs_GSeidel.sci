@@ -162,13 +162,6 @@ while k<=12
 end
 
 
-//------------------------Erreur relative vs Taille de la matrice ----------------
-
-xtitle("L evolution de l ereeur relative", "Taille de la matrice", "Erreur relative");
-plot([1:12], [log(y_jacobi_e_relres) log(y_GSeidel_e_relres)]);
-legend(["Jacobi" "Gauss Seidel"], 2);
-xs2png(0, "img/Erreur_relatives.png");
-clf();
 
 //-------------------------------------- Convergence-----------------------------
 n = 10;
