@@ -2,16 +2,18 @@
 //initialisation de la matrice A
 
 function [A]=A_poisson1D(m)
-    A = zeros (m, m);
-    for i = 1 : m
-        A(i, i) = 2;
-    end
-    for i = 1 : m-1
-        A(i, i+1) = -1;
-    end
-    for i = 2 : m
-        A(i, i-1) = -1;
-    end
+  A = zeros(m, m);
+  k=1
+  while k <=m
+    A(k, k) = 2;
+    k=k+1
+  end
+  k=1
+  while k <m
+    A(k + 1, k) = -1;
+    A(k, k + 1) = -1;
+    k=k+1;
+  end
 endfunction
 
 //initialisation de b
