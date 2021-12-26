@@ -1,0 +1,1218 @@
+\documentclass[12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{fix-cm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[tikz]{bclogo}
+\usepackage{color}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage[Glenn]{fncychap}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage[strict]{changepage}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+\usepackage{lastpage}
+\usepackage{systeme}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{hyperref}
+
+
+\lstset{upquote=true,
+	columns=flexible,
+	keepspaces=true,
+	breaklines,
+	breakindent=0pt,
+	basicstyle=\ttfamily,
+	commentstyle=\color{green!60!black},
+	language=Scilab,
+	alsoletter=\),
+	classoffset=0,
+	keywordstyle=\color{violet!75},
+	deletekeywords={zeros,disp,plot2d,clf},
+	classoffset=1,
+	keywordstyle=\color{cyan},
+	morekeywords={zeros,disp,plot2d},
+	classoffset=2,
+	keywordstyle=\color{violet!75},
+	morekeywords={clf, clc},
+	classoffset=3,
+	keywordstyle=\color{magenta!70!pink!50!},
+	morekeywords={\%f, \%t, \%pi},
+	extendedchars=true,
+	showstringspaces=false,
+	otherkeywords={\%f, \}, \{, \&, \|},
+	literate={0}{{\color{brown!75}0}}1 
+	{1}{{\color{brown!75}1}}1 
+	{2}{{\color{brown!75}2}}1 
+	{3}{{\color{brown!75}3}}1 
+	{4}{{\color{brown!75}4}}1 
+	{5}{{\color{brown!75}5}}1 
+	{6}{{\color{brown!75}6}}1 
+	{7}{{\color{brown!75}7}}1 
+	{8}{{\color{brown!75}8}}1 
+	{9}{{\color{brown!75}9}}1 
+	{(}{{\color{blue!50}(}}1
+	{)}{{\color{blue!50})}}1
+	{[}{{\color{blue!50}[}}1
+	{]}{{\color{blue!50}]}}1
+	{-}{{\color{gray}-}}1
+	{+}{{\color{gray}+}}1
+	{=}{{\color{gray}=}}1
+	{:}{{\color{orange}:}}1
+	{à}{{\`a}}1
+	{À}{{\`A}}1
+	{é}{{\'e}}1
+	{è}{{\`e}}1
+}
+
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+\definecolor{aliceblue}{rgb}{0.94, 0.97, 1.0}
+\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+\definecolor{lightapricot}{rgb}{0.99, 0.84, 0.69}
+\definecolor{lightkhaki}{rgb}{0.94, 0.9, 0.55}
+\definecolor{bisque}{rgb}{1.0, 0.89, 0.77}
+\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=2cm]{geometry}
+
+
+%\renewcommand{\footrulewidth}{1pt}
+%\fancyfoot[C]{\textbf{page \thepage}} 
+%\fancyfoot[L]{Mémoire SMA S6}
+%\fancyfoot[R]{2020-2021}
+
+%\usepackage[frenchb]{babel}
+\addto\captionsfrench{\renewcommand{\chaptername}{Partie}}
+
+\author{\ }
+\title{\ }
+\usepackage{lmodern}
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+  
+  \begin{titlepage}
+   \begin{sffamily}
+    \begin{center}
+     
+     
+     \includegraphics[scale=0.25]{Lg4.png}~\\
+     \includegraphics[scale=0.55]{Lg5.png}~\\[1.9cm]
+     
+     \textsc{\LARGE Université de Versailles}\\[0.1cm]
+     \textsc{\LARGE Saint-Quentin-en-Yvelines}\\ 
+     \textsc{Département de Informatique}\\[1.8cm]
+     
+    \textsc{\Large Master 1 Calcul Haute Performance, Simulation}\\[1.9cm]
+    
+
+     
+     \rule{0.75\textwidth}{2pt}\\[0.1cm]
+     \emph{\textbf{\large TP4/TP5 - Calcul Numérique}}\\ 
+     \rule{0.75\textwidth}{2pt}\\[1.3cm]
+     
+
+     \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+       \textit{\Large Réalisé par :} \\
+       \textsc{\normalsize BOUCHELGA ABDELJALIL}\\
+      
+       
+      \end{flushleft}
+     \end{minipage}
+     \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+       \textit{\Large Encadré par :}\\
+       \textsc{\normalsize Pr.THOMAS DUFAUD}\\
+       
+      \end{flushright}
+     \end{minipage}\\[1cm]
+     
+   
+     
+     \vfill
+     
+
+     {\large Année Universitaire:2021-2022}
+     
+    \end{center}
+   \end{sffamily}
+  \end{titlepage}
+  
+%\addcontentsline{toc}{section}{Remerciement}
+%\addcontentsline{toc}{section}{Introduction}
+%\addcontentsline{toc}{section}{Notations}
+
+\pagebreak
+\normalsize
+\hypersetup{pdfborder=0 0 0}
+\tableofcontents
+\renewcommand{\footrulewidth}{1pt}
+
+
+\chapter{Introduction}
+\textbf{Introduction}\\
+
+
+Ce rapport contient les réponses, les explications et les analyses des exercices des deux TP 4 et 5 dont le but est de pratiquer ce que nous avons vu au cours théoriquement.\\
+
+le but de TP4 est d'implémenter l'algorithme de la factorisation $LDL^t$ et le comparer avec la factorisation LU que nous avons vue au TP2, ainsi nous allons voir comment on peut manipuler efficacement des matrices creuse, car il n'est pas nécessaire de stocker des éléments nuls ou faire des calculs les concernant, pour cela nous allons voir le format \textbf{CSR} et son algorithme qui nous permet de gagner en espace mémoire et en temps de calcul.\\
+
+Le but de TP5 est d'appliquer ce que nous avons vu en cours et TD pour la résolution d'un système linéaire obtenu par discrétisation par la méthode des différences finies de l'équation de la chaleur 1D stationnaire. Les implémentations
+seront faites en C avec $BLAS$, $LAPACK$ et en $Scilab$. 
+nous allons analyser nos algorithmes et ces résultats en étudiant la complexité et les performances.\\
+
+\textbf{Outils utilisés}\\[0.5cm]
+1. Scilab\\
+2. Latex\\
+3. Langage C/Blas/Lapack
+
+
+
+\chapter{TP 4 Calcul Numérique}
+\section{Exercice 1 Factorisation $LDL^t$ pour $A$ symétrique}
+
+Le but de cet exercice est d'implémenter l'algorithme de la factorisation $LDL^T$ pour une matrice symétrique puis nous allons tester et valider l'algorithme, ainsi nous allons mesurer les performances et faire une comparaison avec la factorisation $LU$.
+
+\subsection{L'algotithme $LDL^t$}
+
+La decomposition $LDL^t$ existe pour une matrice A définie positive et symétrique telle que :\\
+- $L$ : est unitriangulaire inférieur.\\
+- $D$ : est une matrice diagonal.\\
+- $L^t$ : est le transposé de $L$.\\
+
+Pour qu'on puisse développer notre algorithme,nous allons commencé par un calcul simple à la main pour une matrice A de taille n = 4, puis nous allons générer les termes de chaque matrice et déduit notre algorithme.
+
+Prenant une matrice $A$ symétrique et définie positive 
+$A=\left(\begin{array}{llll}a_{11} & a_{21} & a_{31} & a_{41} \\ a_{21} & a_{22} & a_{32} & a_{42} \\ a_{31} & a_{32} & a_{33} & a_{43} \\ a_{41} & a_{42} & a_{43} & a_{44}\end{array}\right)$\\[0.5cm]
+l'idée c'est que on va transformer notre matrice A à une matrice écrit sous la forme :\\[0.5cm]
+$A=L D L^{T}=\left(\begin{array}{cccc}1 & 0 & 0 & 0 \\ l_{21} & 1 & 0 & 0 \\ l_{31} & l_{32} & 1 & 0 \\ l_{41} & l_{42} & l_{43} & 1\end{array}\right)\left(\begin{array}{cccc}d_{1} & 0 & 0 & 0 \\ 0 & d_{2} & 0 & 0 \\ 0 & 0 & d_{3} & 0 \\ 0 & 0 & 0 & d_{4}\end{array}\right)\left(\begin{array}{cccc}1 & l_{21} & l_{31} & l_{41} \\ 0 & 1 & l_{32} & l_{42} \\ 0 & 0 & 1 & l_{43} \\ 0 & 0 & 0 & 1\end{array}\right)$\\[0.3cm]
+
+Maintenant en faisant un calcul de multiplication on trouve le résultat suivant : \\
+$$
+L D L^{T}=\left(\begin{array}{cccc}
+d_{1} & d_{1} l_{21} & d_{1} l_{31} & d_{1} l_{41} \\
+d_{1} l_{21} & d_{1} l_{21}^{2}+d_{2} & d_{1} l_{21} l_{31}+d_{2} l_{32} & d_{1} l_{21} l_{41}+d_{2} l_{42} \\
+d_{1} l_{31} & d_{1} l_{21} l_{31}+d_{2} l_{32} & d_{1} l_{31}^{2}+d_{2} l_{32}^{2}+d_{3} & d_{1} l_{31} l_{41}+d_{2} l_{32} l_{42}+d_{3} l_{43} \\
+d_{1} l_{41} & d_{1} l_{21} l_{41}+d_{2} l_{42} & d_{1} l_{31} l_{41}+d_{2} l_{32} l_{42}+d_{3} l_{43} & d_{1} l_{41}^{2}+d_{2} l_{42}^{2}+d_{3} l_{43}^{2}+d_{4}
+\end{array}\right)
+$$
+
+Nous allons danc supprimer supprimer la partie triangle supérieur et nous allons parcourir les colonnes, de gauche à droite, et dans chaque colonne de haut en bas.\\
+
+On part de la première colonne : $\mathrm{A}$
+$$
+\begin{aligned}
+&d_{1}=a_{11} \\
+&l_{21}=a_{21} / d_{1} \\
+&l_{31}=a_{31} / d_{1} \\
+&l_{41}=a_{41} / d_{1}
+\end{aligned}
+$$
+
+On traite maintenant la deuxième colonne :
+$$
+\begin{aligned}
+&d_{2}=a_{22}-d_{1} l_{21}^{2} \\
+&l_{32}=\frac{a_{32}-d_{1} l_{21} l_{31}}{d_{2}} \\
+&l_{42}=\frac{a_{42}-d_{1} l_{21} l_{41}}{d_{2}}
+\end{aligned}
+$$
+
+
+Nous traitons la troisième colonne: 
+$$
+\begin{aligned}
+&d_{3}=a_{33}-d_{1} l_{31}^{2}-d_{2} l_{32}^{2} \\
+&l_{43}=\frac{a_{43}-d_{1} l_{31} l_{41}-d_{2} l_{32} l_{42}}{d_{3}}
+\end{aligned}
+$$
+
+Enfin, sur la 4ème colonne, nous avons tous un élément diagonal :
+$$
+d_{4}=a_{44}-d_{1} l_{41}^{2}-d_{2} l_{42}^{2}-d_{3} l_{43}^{2}
+$$
+
+\textbf{Remarque:}
+Ici j'ai essayé de donné juste un bref calcul sur l'idée et pas entré dans les détails de calcul.\\
+
+
+A partir de ces resultat on peut deduire la forme general des valeurs de $l$ et $d$ :
+
+Soit $A$ une matrice de taille $n*n$.\\[0.5cm]
+Pour i de 1 jusqu'a n 
+$$
+D(i)=A(i, i)-\sum_{j=1}^{i} L(i, j)^{2} D(j)
+$$
+Pour j de i+1 jusqu'a n
+$$
+L(j, i)=\left(A(j, i)-\sum_{k=1}^{i} L(j, k) L(i, k) D(k)\right) / D(i) ;
+$$
+
+
+\subsubsection{Code scilab}
+\begin{lstlisting}
+function [L,D,LT] = facldlt(A) 
+ n = size(A,"r");
+ D = zeros(n,n);
+ L=zeros(n,n);
+ for i = 1:n
+   L(i,i)=1;
+ end
+
+ D(1,1) = A(1,1);
+ L(2:n,1) = A(2:n,1)/D(1,1);
+ for j = 2 : n
+   D(j,j) = A(j,j) - L(j,1:j-1)*(L(j,1:j-1)*D(1:j-1,1:j-1))';
+   L(j+1:n, j) = (A(j+1:n,j) - L(j+1:n,1:j-1)*(L(j,1:j-1)*D(1:j-1,1:j-1))')/D(j,j);
+ end
+ LT=L';
+endfunction
+\end{lstlisting}
+
+\subsubsection{Test et validation}
+\begin{lstlisting}
+function[] = test()
+A=[2,-1,0;-1,2,-1;0,-1,1] // matrice symetrique definie positive
+[L,D,LT] = facldlt(A)
+disp("L*D*LT =", L*D*LT)
+disp("A =",A)
+erreur = norm((A-L*D*LT) / A) 
+disp("erreur = "erreur)
+
+endfunction
+\end{lstlisting}
+
+\textbf{Resultat des tests :}
+
+\begin{lstlisting}
+
+-->test()
+
+"L*D*LT ="
+
+2.  -1.   0.
+-1.   2.  -1.
+0.  -1.   1.
+
+"A ="
+
+2.  -1.   0.
+-1.   2.  -1.
+0.  -1.   1.
+
+"erreur = "
+
+0.
+\end{lstlisting}
+
+\textbf{Commentaire :} D'apres les resultats de test nous voyons que notre algorithme est bien fonctionnel, car $A=L*D*LT$ et nous affiche aussi une erreur egale à zero pour la taille 3.\\
+
+
+\subsubsection{Complixité d'algorithme}
+
+Nous allons calculer le nombre d'opérations pour une matrice $\mathrm{n} \times \mathrm{n}$.\\
+
+Le nombre de divisions est
+$$
+(N-1)+(N-2)+\ldots+0=\frac{(N-1) N}{2}
+$$
+ici la compléxité est quadratique.\\
+
+Le nombre de multiplications est :\\
+$$
+2(0 \cdot N+1 \cdot(N-1)+2 \cdot(N-2)+\ldots+N \cdot 0)=\frac{(N-1) N(N+1)}{3}
+$$
+ici la compléxité est cubique.\\
+
+
+Et enfin,le nombre d'additions/soustractions :
+$$
+1 \cdot(N-1)+2 \cdot(N-2)+\ldots+(N-1) \cdot 1=\frac{(N-1) N(N+1)}{6}
+$$
+
+si on fait la somme des trois valeurs en trouve :
+
+$$\frac{N(N-1)(3+2N)}{3}
+\approx \frac{2}{3} n^{3}$$
+Donc l'algorithme à une complixité cubique.\\[0.1cm]
+
+\textbf{Analyse des resultats :}
+L'avantage de la factorisation $LDL^t$ c'est que nous permet de gagner en efort de calcul et de stockage par rapport à la factorisation LU.
+
+\section{Exercice 2 Format de stockage CSR}
+
+Notre objectif est de resoudre le probléme lineaire de type :
+$$ Ax=b$$ où la matrice A est \textbf{creuse} c’est-à-dire nous avons des coefficients nuls dans la matrice.\\
+Et pour minimiser notre memoire occupée par la matrice, nous allons stocké juste les elements non nuls de la matrice au lieu de stocké tous les elements.\\
+
+Cela nous permet d'améliorer les performances du produit matrice-vecteur, en passant d’une complexité de $O(n^2)$ à $O(nnz)$ où \textbf{nnz} est le nombre de coefficients non-nuls.\\
+
+Pour arriver a ce point, il existe plusieurs formats de matrices creuses. Parmi les plus connus et utilisés : les formats \textbf{COO} (Coordinate storage) et \textbf{CSR} (Compressed Sparse Row).
+Dans cet exercice nous allons interessé au format de stockage CSR.
+
+\subsection{Compressed Sparse Row (CSR)}
+
+Le format \textbf{CSR} remplace la matrice creuse par trois tableaux, il stocke les indices de colonne et les valeurs des coefficients non nuls de la matrice $A$ dans
+2 tableaux : $JA$ et $AA$, chacun de longueur nnz . Un troisième tableau de pointeurs, $IA$, de
+taille $n+1$, indique le début et la fin d’une ligne. Les coefficients non nuls sont ordonnés par leur indice de ligne.\\
+
+Soit la matrice creuse A 
+
+$$
+A=\left(\begin{array}{ccccc}
+a_{11} & 0 & 0 & 0 & a_{15} \\
+a_{21} & a_{22} & 0 & a_{24} & 0 \\
+a_{31} & 0 & a_{33} & a_{34} & a_{35} \\
+0 & 0 & a_{43} & a_{44} & 0 \\
+0 & 0 & 0 & 0 & a_{55}
+\end{array}\right)
+$$
+La compression au format CSR donne les tableaux suivants :
+$$
+\begin{aligned}
+&\mathrm{AA}=\{a_{11},a_{15},a_{21},a_{22},a_{24},a_{31},a_{33},a_{34},a_{35},a_{43},a_{44},a_{55}\} . \\
+&\mathrm{JA}=\{1,5,1,2,4,1,3,4,5,3,4,5\} . \\
+&\mathrm{IA}=\{1,3,6,10,12,13\} .
+\end{aligned}
+$$
+
+\subsubsection{Produit Matrice - Vecteur}
+
+\begin{lstlisting}
+function [y] = matxvect(AA, IA, JA, x)
+ n = size(JA,2);
+ y = zeros(n-1, 1);
+ for i=1:n-1
+   for j=JA(i):JA(i+1)-1 
+     y(i) = y(i) + AA(j)*x(IA(j))
+   end
+ end
+endfunction
+
+\end{lstlisting}
+
+Test et validation de l'algorithme 
+
+\begin{lstlisting}
+-->A
+A  = 
+
+1.   0.   0.    0.    2. 
+3.   4.   0.    5.    0. 
+6.   0.   7.    8.    9. 
+0.   0.   10.   11.   0. 
+0.   0.   0.    0.    12.
+
+-->x
+x  = 
+
+3.
+2.
+1.
+4.
+1.
+
+-->AA
+AA  = 
+
+1.   2.   3.   4.   5.   6.   7.   8.   9.   10.   11.   12.
+
+-->IA
+IA  = 
+
+1.   3.   6.   10.   12.   13.
+
+-->JA
+JA  = 
+
+1.   5.   1.   2.   4.   1.   3.   4.   5.   3.   4.   5.
+
+-->y=A*x
+y  = 
+
+5. 
+37.
+66.
+54.
+12.
+
+-->[y]= matxvect(AA, IA, JA, x)
+y  = 
+
+5. 
+37.
+66.
+54.
+12.
+
+\end{lstlisting}
+
+
+\chapter{TP 5 Calcul Numérique}
+
+\section{Exercice 1: Resolution de l’equation de la chaleur par une méthode de différence finie centrée d’ordre 2}
+On consid`ere l’´equation de la chaleur suivant :
+$$
+\left\{\begin{array}{l}
+\left.-k \frac{\partial^{2} T}{\partial x^{2}}=g, x \in\right] 0,1[ \\
+T(0)=T_{0} \\
+T(1)=T_{1}
+\end{array}\right.
+$$
+Nous avons discrétisé le domaine $1D$ selon $n+ 2$ noeuds $x_{i}$,$ i = 0, 1, 2, ...n+ 1$ espacés d’un pas $h$ constant.\\
+
+En chaque noeud l'équation discrète s'écrit:
+$$
+-k\left(\frac{\partial^{2} T}{\partial x^{2}}\right)_{i}=g_{i}
+$$
+
+
+1- Approximation de la dérivée seconde de $T$ au moyen d’un schéma centré d’ordre $2$.\\
+
+\textbf{Notation :} on note T par u.\\
+
+Nous allons appliquer les formule de Taylor :
+
+$$
+\begin{aligned}
+&u\left(x_{i}+h\right)=u\left(x_{i}\right)+h\left(\frac{\partial u}{\partial x}\right)_{i}+\frac{h^{2}}{2}\left(\frac{\partial^{2} u}{\partial x^{2}}\right)_{i}+O\left(h^{2}\right) \\
+&u\left(x_{i}-h\right)=u\left(x_{i}\right)-h\left(\frac{\partial u}{\partial x}\right)_{i}+\frac{h^{2}}{2}\left(\frac{\partial^{2} u}{\partial x^{2}}\right)_{i}+O\left(h^{2}\right)
+\end{aligned}
+$$
+On fait la somme des deux ligne et on deduit la valeur de notre derivée :
+
+$$
+\begin{array}{r}
+u\left(x_{i}+h\right)-2 u\left(x_{i}\right)+u\left(x_{i}-h\right)=h^{2}\left(\frac{\partial^{2} u}{\partial x^{2}}\right)_{i}+O\left(h^{2}\right)
+\end{array}
+$$
+
+d'ou
+
+$$
+\frac{-u\left(x_{i}+h\right)+2 u\left(x_{i}\right)-u\left(x_{i}-h\right)}{h^{2}}=-\left(\frac{\partial^{2} u}{\partial x^{2}}\right)_{i}
+$$
+
+\textbf{Notation :} 
+on note :\\[0.3cm]
+- $u\left(x_{i}+h\right)$ par $u_{i+1}$\\ 
+- $u\left(x_{i}-h\right)$ par $u_{i-1}$ \\
+- $u\left(x_{i}\right)$ par $u_{i}$\\
+
+Notre approximons la dérivée seconde de $u$ au moyen d'un schéma centré à l'ordre 2 :
+$$
+\left(\frac{d^{2} u}{d x^{2}}\right)_{i}=\frac{u_{i+1}-2 u_{i}+u_{i-1}}{h^{2}}
+$$
+
+L'équation discrétisée est ainsi :
+$$
+\frac{2 u_{i}-u_{i+1}-u_{i-1}}{h^{2}}=g_{i} \quad ; \text { pour } i \text { variant de } 1 \text { à N-1 }
+$$
+A partir de la dernier equation on deduit la formulation matricielle et en faisant apparaitre le vecteur des inconnues discrètes:
+$$
+\left(\begin{array}{ccccc}
+2 & -1 & 0 & \cdots & 0 \\
+-1 & 2 & -1 & \cdots & 0 \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+0 & 0 & -1 & 2 & -1 \\
+0 & 0 & 0 & -1 & 2
+\end{array}\right)\left(\begin{array}{c}
+u_{1} \\
+u_{2} \\
+\vdots \\
+u_{N-2} \\
+u_{N-1}
+\end{array}\right)=\left(\begin{array}{c}
+h^{2}g_{1}+u_{0} \\
+h^{2}g_{2} \\
+\vdots \\
+h^{2}g_{N-2} \\
+h^{2}g_{N-1}+u_{N+1}
+\end{array}\right)
+$$
+d'ou on deduit notre systeme $Au=f$ avec\\
+ 
+$A=\left(\begin{array}{ccccc}
+	2 & -1 & 0 & \cdots & 0 \\
+	-1 & 2 & -1 & \cdots & 0 \\
+	\vdots & \ddots & \ddots & \ddots & \vdots \\
+	0 & 0 & -1 & 2 & -1 \\
+	0 & 0 & 0 & -1 & 2
+\end{array}\right)$
+, 
+$u=\left(\begin{array}{c}
+u_{1} \\
+u_{2} \\
+\vdots \\
+u_{N-2} \\
+u_{N-1}
+\end{array}\right)$
+et
+$f=\left(\begin{array}{c}
+h^{2}g_{1}+u_{0} \\
+h^{2}g_{2} \\
+\vdots \\
+h^{2}g_{N-2} \\
+h^{2}g_{N-1}+u_{N+1}
+\end{array}\right)$
+\newpage
+\section{Exercice 2: Environnement C + BLAS/LAPACK}
+
+Pour l'installation des deux packages Blas et lapack on execute les deux commandes simple :\\[0.2cm]
+- sudo apt-get update\\
+- sudo apt-get install libblas-dev liblapacke-dev\\
+
+
+puis nous allons tester notre installation en executant le code de test (make; make run testenv;)
+\begin{center}
+\includegraphics[scale=0.45]{G3.png}~\\
+\end{center}
+
+\section{Exercice 3: Utilisation de BLAS/LAPACK}
+
+1-la déclarer et allouer une matrice pour utiliser BLAS et LAPACK.\\[0.3cm]
+Les matrices sont représentées par un tableau de pointeurs vers chaque ligne de la matrice.\\
+
+Pour la déclaration on fait par exemple : double **A et
+pour l'allocation en utilise deux malloc, l'un pour le tableau A et l'autre pour les données.\\
+Puis pour la liberation memoire en utilise deux free, free (\&$A[0][0]$) {et} free($A$).\\
+
+2- La signification de la constante \textbf{LAPACK COL MAJOR}\\
+
+Une matrice est à deux dimensions, mais la mémoire d'un ordinateur est à une dimension.si nous voulons stocker la matrice A en mémoire,
+$$
+A=\left(\begin{array}{lll}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{array}\right) .
+$$
+Pour cela on parle aux formats principaux de stockage \textbf{ LAPACK ROW MAJOR} et \textbf{LAPACK COL MAJOR} qui diffèrent dans la façon dont ils stockent les matrices en mémoire.
+
+lorsqu'on parle de LAPACK COL MAJOR cela veut dire que les données sont stockées dans le format principal de colonne come dans notre exemple de la matrice A, ces elements sont stocké de la facon suivant  : 1, 4, 2, 5, 3, 6. De même,pour LAPACK ROW MAJOR les données sont stockées dans le format principal de ligne comme suit : 1, 2, 3, 4, 5, 6.
+LAPACK COL MAJOR est utilisé en $FORTRAN, MATLAB$ et $Octave$. Row major est utilisé en $C$ et $C++$.\\
+
+
+2-la dimension principale (leading dimension)\\
+
+La dimension principale lda est généralement égale au nombre d'éléments de la dimension principale.
+Comme ce qu'on a vue dans la question precedent il est évident de savoir comment stocker une matrice $A$ de taille $m \times n$ dans $mn$ emplacements mémoire. Mais, il existe de nombreux cas dans lesquels on aura besoin d'accéder à une matrice qui est un sous-bloc d'une autre matrice plus grande. Le sous-bloc n'est plus partagé en mémoire. La façon de décrire cela est d'introduire un troisième paramètre en plus de $m$, $n$ qui est la dimension principale ld (leading dimension) de $A $.\\
+
+
+Prenons un exemple d'une matrice A de taille $100\times 100$ qui est stockée dans un tableau $100\times 100$. Dans ce cas, lda est identique à $\mathrm{m}$. Supposons maintenant qu'on veut fonctionner juste sur la sous-matrice $\mathrm{A}(91 : 100,1 : 100)$ ; dans ce cas, le nombre de lignes est de 10 mais $\mathrm{lda}=100$. En supposant le format de stockage COL major, le lda permet de définir la distance en mémoire entre les éléments de deux colonnes consécutives qui ont le même index de ligne. 
+Si on veut appeler $\mathrm{B}=\mathrm{A}(91:100,1:100)$ alors $\mathrm{B}(1,1)$ et $\mathrm{B}(1,2)$ sont 100 emplacements mémoire éloignés l'un de l'autre selon la formule suivante, 
+$\mathrm{B}(\mathrm{i}, \mathrm{j})=\mathrm{i}+(\mathrm{j}-1)^{\star} \mathrm{lda}$, implique que , $\mathrm{B}(1,2)=1+(2-1)$ $\star 100=101$ iéme emplacemnt en memoire.\\
+
+4- la fonction Dgbsv\\
+
+\textbf{Dgbsv} est une fonction de la librairie lapack qui permet de calculer la solution du systeme lineaire $Ax=b$ avec $A$ une matrice bande.\\
+
+\textbf{Parametres de la fonction :}\\
+
+Cette fonction prend en parametre les elements suivants:\\
+
+\textbf{N} : int
+Le nombre d'équations linéaires, c'est-à-dire l'ordre des
+matrice $A$. $N >= 0$.\\
+
+\textbf{KL} : int\\
+Le nombre de sous-diagonales dans la bande de $A$. $KL >= 0$.\\
+
+\textbf{KU} : int\\
+Le nombre de superdiagonales dans la bande de $A$. $KU >= 0$.\\
+
+\textbf{NRHS} : int\\
+Le nombre de côtés droits, c'est-à-dire le nombre de colonnes
+de la matrice $B$. $NRHS >= 0$.\\
+
+\textbf{AB} : tableau DOUBLE PRECISION, dimension $(LDAB,N)$\\
+
+$A$ l'entrée, la matrice $A$ en mémoire bande, en lignes $KL+1$ à $2*KL+KU+1$ ; les lignes $1$ à $KL$ du tableau n'ont pas besoin d'être définies.
+La $j-ème$ colonne de $A$ est stockée dans la $j-ème$ colonne du tableau $AB$ comme suit :
+$AB(KL+KU+1+ij,j) = A(i,j)$ pour $max(1,j-KU)<=i<=min(N,j+KL)$ En sortie, détail de la factorisation : $U$ est stocké sous forme de matrice de bande triangulaire supérieure avec superdiagonales $KL+KU$ dans lignes 1 à $KL+KU+1$, et les multiplicateurs utilisés lors de la factorisation sont stockées dans les lignes $KL+KU+2$ à $2*KL+KU+1$.\\
+
+\textbf{LDAB} : int\\
+c'est la dimension principale du tableau $AB$. $LDAB >= 2*KL+KU+1$.\\
+
+\textbf{IPIV} : tableau int, dimension ($N$)\\
+
+Les indices pivots qui définissent la matrice de permutation $P$ ;
+la ligne $i$ de la matrice a été intervertie avec la ligne $IPIV(i)$.\\
+
+\textbf{B} : tableau DOUBLE PRECISION, dimension $(LDB,NRHS)$\\
+
+$A$ l'entrée, la matrice de droite $N$ par $NRHS B$.
+En sortie, si $INFO = 0$, la matrice de solution $N-par-NRHS X$.\\
+
+\textbf{LDB} : int\\
+La dimension principale du tableau $B$. $LDB >= max(1,N)$.\\
+
+\textbf{INFO} : int\\
+$= 0$ : sortie réussie
+$< 0$ : si $INFO = -i$, le $i-ième$ argument avait une valeur illégale
+$> 0$ : si $INFO = i, U(i,i)$ vaut exactement $0$. La factorisation a été complété, mais le facteur $U$ est exactement singulier, et la solution n'a pas été calculée.\\
+
+\textbf{La methode qui implemente :}\\
+
+Cette fonction implemente la methode de La décomposition $LU$ avec pivotement partiel et échanges de lignes pour factoriser $A$ comme $A = LU$ avec\\
+$L$ : une matrice triangulaire inférieure unitaire avec des sous-diagonales $KL$.\\
+$U$ : est matrice triangulaire supérieur avec superdiagonales $KL+KU$. 
+La forme factorisée de $A$
+est ensuite utilisé pour résoudre le système d'équations $Ax=b$.\\
+
+5-le stockage en priorité ligne.\\
+
+Pour assurer le stockage en priorité ligne, nous avons modifié d'abord notre fichier\\ $tp2\_poisson1D\_direct.c$, nous avons remplacé $row=0$ par $row=1$, pour verifier la condition qui fait appel au deux fonctions setGBoperatorrowMajorpoisson1D et writeGBoperatorrowMajorpoisson1D  que nous avons modifié dans le fichier $lib\_poisson1D.c.$ \\
+
+\textbf{Dans le fichier lib\_poisson1D.c :}
+
+\begin{lstlisting}
+function [y] = matxvect(AA, IA, JA, x)
+void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la)
+{
+//done
+//-----------Format de stockage ligne rowMajor-----------------
+int u =0;
+while (u< *la)
+{
+  AB[u]=0.0;
+  AB[u+*la]=-1.0;
+  AB[u + (*la)*2]=2.0;
+  AB[u+(*la)*3]=-1.0;
+  u+=1;
+}
+//ici nous allons remplacer le 1er et le dernier element du tableau par des zeros(les elements que nous avons ajouté) 
+AB[(*lab)*(*la)-1]=0.0;
+AB[*la]=0.0;
+}
+void write_GB_operator_colMajor_poisson1D(double* AB, int* lab, int* la, char* filename){
+//done
+FILE * file;
+int ii,jj;
+file = fopen(filename, "w");
+//Numbering from 1 to la
+if (file != NULL){
+  for (ii=0;ii<(*la);ii++){
+    for (jj=0;jj<(*lab);jj++){
+      fprintf(file,"%lf\t",AB[ii*(*lab)+jj]);
+    }
+    fprintf(file,"\n");
+  }
+fclose(file);
+}
+else{
+perror(filename);
+}
+\end{lstlisting}
+
+
+
+\section{Exercice 4: DGBMV}
+
+la fonction BLAS dgbmv permet d'effectuer l'une des opérations matrice-vecteur
+
+$$y := \alpha Ax + \beta y$$
+
+où $\alpha \, \, {et} \, \, \beta$ sont des scalaires, $x$ et $y$ sont des vecteurs et $A$ est un matrice de bandes $m$ par $n$, avec des sous-diagonales $kl$ et des super-diagonales $ku$.\\
+
+L'utilisation de la fonction blas dgbmv est fait dans le fichier $tp2 poisson1D direct.c$ que vous trouverz sur le github et les resultats sont dans le fichier dgbmv\_row.dat
+
+\section{Exercice 5: la factorisation $LU$ pour les matrices tridiagonales}
+
+
+
+\subsection{La methode de factorisation LU}
+
+Soit A une matrice tridiagonale de la forme suivant :
+$$
+A=\left(\begin{array}{cccccc}
+a_{1} & c_{1} & 0 & \cdots & 0 & 0 \\
+b_{1} & a_{2} & c_{2} & \cdots & 0 & 0 \\
+& & \ddots & & & \\
+& & & \ddots & & \\
+0 & 0 & 0 & \cdots & a_{n-1} & c_{n-1} \\
+0 & 0 & 0 & \cdots & b_{n-1} & a_{n}
+\end{array}\right)
+$$
+
+Nous allons cherché a faire la decomposition LU de la matrice A avec :
+
+$$
+L=\left(\begin{array}{ccccc}
+1 & 0 & \cdots & 0 & 0 \\
+e_{1} & 1 & \cdots & 0 & 0 \\
+& & \ddots & & \\
+0 & 0 & \cdots & 1 & 0 \\
+0 & 0 & \cdots & e_{n-1} & 1
+\end{array}\right) \;\;\; et \;\;\;\ U = \left(\begin{array}{ccccc}
+d_{1} & c_{1} & \cdots & 0 & 0 \\
+0 & d_{2} & \cdots & 0 & 0 \\
+& & \ddots & & \\
+0 & 0 & \cdots & d_{n-1} & c_{n-1} \\
+0 & 0 & \cdots & 0 & d_{n}
+\end{array}\right)
+$$\\
+
+
+Pour qu'on puisse calculer les coefficients $e_{i}$ et $d_{i}$ nous avons procedé par l'elimination de Gauss sur la matrice A, nous allons commencé par un exemple d'une matrice de taille n=4, nous fesons notre calcul et on deduit la forme général des coifficients,(les calculs sont deja fait en TD3 Ex 2).\\
+
+
+En conclusion les éléments de la factorisation $A=L U$ sont donnés par:
+$$
+\begin{aligned}
+&d_{i}=a_{i} \text { pour } i=1, \ldots, n-1, \\
+&d_{1}=b_{1}, \\
+&e_{i}=\frac{b_{i}}{d_{i-1}} \text { et }d_{i}=a_{i}-e_{i} c_{i-1} \text { pour } i=2, \ldots, n .
+\end{aligned}
+$$
+
+Maintenant pour resoudre notre systeme tridiagonale $Ax=b$ cela revient à resoudre revient à résoudre les deux systèmes  $Ly = b$ et $Ux = y$ On aura donc :
+\begin{center}
+	$Ax = b \Leftrightarrow LUx = b \Leftrightarrow $ $\left\{\begin{array}{l} Ly=b \\ Ux=y\end{array}\right.$
+\end{center}
+
+$$
+\begin{aligned}
+&Ly=b \quad \Rightarrow \quad y_{1}=b_{1}, y_{i}=b_{i}-e_{i} y_{i-1}, \quad i=2, \ldots, n, \\
+&Ux=y \quad \Rightarrow \quad x_{n}=\frac{y_{n}}{d_{n}}, x_{i}=\frac{y_{i}-c_{i} x_{i+1}}{d_{i}}, \quad i=n-1, \ldots, 1 .
+\end{aligned}
+$$
+Ici nous avons  $3(n-1)$ operrations pour la factorisation et de $5 n-4$ opérations pour la substitution, d'ou nous avons en total  $8 n-7$ opérations.
+
+\subsection{Algorithme sur Scilab}
+
+\begin{lstlisting}
+//-------------Factorisation LU d'une matrice tridiagonale------------
+/*
+Cette fonction realise la factorisation LU d'une matrice tridiagonale en se basant 
+sur l'elemination de Gauss.
+
+Containtes:
+A : est une matrice tridiagonale. 
+L : est une matrice triangulaire inférieure ayant des 1 sur la diagonale obtenue après la factorisation.
+U : est une matrice triangulaire supérieure obtenue après la factorisation.
+
+Valeur de retour :
+L,U
+*/
+function [L,U] =LU_tridiagonale(A)
+ n=size(A,"r");
+ for k=1:n-1
+    for i=k+1:n
+       A(i,k)=A(i,k)/A(k,k);
+       for j=k+1:n
+          A(i,j)=A(i,j)-A(i,k)*A(k,j);
+       end
+    end
+ end
+ U=triu(A);
+ L=A-U
+ for i = 1:n
+   L(i,i)=1;
+ end
+endfunction
+
+\end{lstlisting}
+
+
+
+\section{Exercice 6: Etude des méthodes Jacobi et Gauss-Seidel}
+
+Cet exercice a pour but de programmer et de comparer les methodes Jacobi, Gauss-Seidel. Toutes les fonctions 
+auront pour arguments principaux :\\ [0.3cm]
+- \textbf{A:} la matrice tridiagonale du systeme\\
+- \textbf{b:} le vecteur second membre\\
+- \textbf{x0:} est le vecteur initial\\
+- \textbf{tol:} est la tolérance de l'erreur,la valeur du test d’arret \\
+- \textbf{itMax:} le nombre maximal d’iterations\\[0.3cm]
+et fourniront en retour\\[0.2cm]
+- \textbf{x:} la solution approchee\\
+- \textbf{errl:} un vecteur stockant la valeur de la norme du residu  a chaque iteration.\\
+- \textbf{relres:} l’erreur relative.\\
+
+\subsection{Les algorithmes Jacobi et Gauss Seidel}
+
+\textbf{Jacobi :}
+
+\begin{lstlisting}
+//----------------------Jacobi------------------------------
+
+/*Valeur retour:
+x: est la résolution du système
+k: est nombre d'intération à converger
+errl: l'erreur relative
+*/
+function [x, errl, k] = Jaccobi(A,b,tol,itmax)
+/*
+x0: valeur initiale
+itmax: nombre maximum de l'itération
+tol: tolérance de l'erreur
+*/    
+n = size(A,"c");
+x0 = zeros(n,1);
+errl=zeros(itmax,1);
+
+r = b-A*x0;
+relres = norm(r)/norm(b);
+D = (1.)./diag(A);
+
+for k = 1:itmax-1    
+  x = x0 + D.*r;
+  x0 = x;
+  r = b-A*x0;
+  relres = norm(r)/norm(b);
+  if relres<tol
+    break
+  end
+  errl(k,1) = relres;
+end    
+endfunction
+\end{lstlisting}
+
+\textbf{Gauss Seidel:}
+\begin{lstlisting}
+//----------------------gauss_Seidel---------------------------
+
+/*Valeur retour:
+x: est la résolution du système
+k: est nombre d'intération à converger
+errl: l'erreur relative
+*/
+function [x, errl, k] = Gss_Seidel(A, b, tol, itmax)
+/*
+x0: valeur initiale
+itmax: nombre maximum de l'itération
+tol: tolérance de l'erreur
+*/    
+n = size(A,"c");
+D = zeros(n, n);
+for i = 1:n
+  D(i, i) = A(i, i);
+end
+E = zeros(n, n);
+for i = 2:n
+  E(i, i - 1) = - A(i, i - 1);
+end
+SB = inv(D - E);
+x0 = zeros(n, 1);
+
+errl=zeros(itmax,1);
+
+r = b-A*x0;
+relres = norm(r)/norm(b);
+
+for k = 1:itmax-1 
+  x = x0 + SB * res;
+  x0=x
+  r = (b - A * x0);
+
+  relres = norm(r)/norm(b);
+  if relres<tol
+    break
+  end
+  errl(k,1) = relres;
+end
+
+endfunction
+\end{lstlisting}
+
+\textbf{Modification d'algorithme pour diminuer la compléxité: }
+A mon avis pour améliorer notre algorithme soit nous allons cherché a faire une seule boucle vue que notre matrice est tridiagonlae, soit on fait appel à la fonction Blas dgbsv dans notre boucle pour nos operations.
+Vu au contrainte du temps je n'arrive pas a faire tester ces deux propositions.\\
+
+3- Le probléme Poisson 1D\\
+
+Nous avons effectué 10 iterations pour notre probléme poisson 1D, pour n=3. Considérons notre vecteur d'erreur suivant :
+$$error\_vec = [10^{-1}, 10^{-2}, 10^{-3}, 10^{-4}, 10^{-5}, 10^{-6}, 10^{-7}, 10^{-8}, 10^{-9}, 10^{-10}]
+$$
+
+Resultats d'iteration successivement :\\[0.2cm]
+\textbf{Jacobi :}11,16,20,19,35,43,50,54,60,64\\
+\textbf{Gauss Seidel :}5,7,10,15,16,22,25,27,29,31\\
+
+On constate que la methode de Gauss seidel est deux fois plus vite en terme de convergence par rapport au methode de Jacobi et ca ce que nous avons vu au cours.
+
+
+\subsection{Analyse de la complexité :}
+
+\textbf{Jacobi :} Achaque itération on effectue $(n-1)$ multiplication, $n$ addition et une division. Et pour le stockage de notre matrice A et les vecteurs $b, x_{k} {et} x_{k+1}$ on utilise $(n^{2} + 3n)$ mémoires.
+Pour notre cas la methode est converge, car notre matrice est définie positive.
+
+\textbf{Gauss Seidel :}
+
+Nous avons vu dans le cours que la methode Gauss Seidel est une amélioration de la méthode de Jacobi. On améliore ainsi la vitesse de convergence. Considérons un système à trois équations
+$$
+\left\{\begin{array}{l}
+x=\left(b_{1}-a_{12} y-a_{13} z\right) / a_{11} \\
+y=\left(b_{2}-a_{21} x-a_{23} z\right) / a_{22} \\
+z=\left(b_{3}-a_{31} x-a_{32} y\right) / a_{33}
+\end{array}\right.
+$$
+A la première itération, on calcule à partir du vecteur initial
+$$
+x_{0}=\left(x^{(0)}, y^{(0)}, z^{(0)}\right)
+$$
+la valeur $x^{(1)}$
+$$
+x^{(1)}=\left(b_{1}-a_{12} y^{(0)}-a_{13} z^{(0)}\right) / a_{11}
+$$
+Cette valeur est utilisé dans le calcul de la deuxième composante (la chose qui fait la difference avec la méthode de Jacobi, car on utilise ici la valeur $x^{(1)}$ et non $\left.x^{(0)}\right)$
+$$
+y^{(1)}=\left(b_{2}-a_{21} x^{(1)}-a_{23} z^{(0)}\right) / a_{22}
+$$ 
+De même, on porte $x^{(1)}$ et $y^{(1)}$ dans le calcul de $z^{(1)}$
+$$
+z^{(1)}=\left(b_{3}-a_{31} x^{(1)}-a_{32} y^{(1)}\right) / a_{33}
+$$
+A chaque itération, on effectue $(n-1)$ multiplications, $n$ additions et une division.Et Pour stocker $A$ et les vecteurs $b, x_{k}$ et $x_{k+1}$, on utilise $\left(n^{2}+2 n\right)$ mémoires. Si $A$ et $b$ sont calculés, on utilise $n$ mémoires.\\
+
+Cette méthode permet de ne stocker qu’un seul vecteur de taille n au lieu de deux vecteurs de taille n pour Jacobi. Quand elle converge, elle converge plus vite que Jacobi. Par exemple, dans le cas de matrices à diagonale dominante stricte, les deux méthodes convergent, mais Gauss–Seidel converge beaucoup plus vite.\\
+
+
+\textbf{Remarque :}Pour résoudre un systéme linéaire, on préférera les méthodes directes dans le cas des matrices pleines, et les méthodes itératives dans le cas des matrices creuses.\\
+
+
+4-5 Analyse de convergence et comparaison des deux methodes\\
+
+Pour la creation des graphes voir le fichier :\textbf{ Exercices\_6 \_7/Jacobi\_vs\_GSeidel.sci}\\
+
+
+Ce graphe nous montre l'evolution de l'erreur relative par rapport au taille de la matrice
+
+\includegraphics[scale=0.80]{G1.png}~\\
+d'apres le graphe nous remarquons que a partir d'un certain taille (=25) l'erreur se stabilise pour les deux methodes, et qu'on augmente la taille l'erreur augmente.\\
+
+\textbf{La convergence :}\\
+
+Pour $e=10^{-8}$ et $n=10$
+
+\includegraphics[scale=0.80]{G2.png}~\\
+
+Nous remarquons que la methode Gauss Seidel converge 2 fois plus vite que Jacobi en nombre d'itération, ainsi l'erreur pour la methode Gauss Seidel est inferieur à l'erreur de la methode de Jaccobi.\\
+
+En conclus que la methode Gauss Seidel est le meilleur choix pour notre cas. 
+
+
+\section{Exercice 7: Etude du processus itératif de Richardson}
+
+1- Soit l'itération de Richardson :
+$$
+x^{k+1}=x^{k}+\alpha\left(b-A x^{k}\right)
+$$
+avec $\alpha \in \mathbb{R}^{*+}$.
+
+cherchons $G_{\alpha}$ telle que : 
+$$
+x^{k+1}=G_{\alpha}x^{k}+\alpha b
+$$\\
+on a
+$$
+\begin{aligned}
+x^{k+1} &=x^{k}+\alpha b-\alpha A x^{k} \\
+&=(I-\alpha A) x^{k}+\alpha b \\
+&=G_{\alpha} x^{k}+\alpha b
+\end{aligned}
+$$
+On pose $G_{\alpha}=I-\alpha A$\\
+
+2- Encadrement des valeurs propre de $G_{\alpha}$\\
+
+Considerons $A$ une matrice definie positive et $\lambda_{i}$ ces valeurs propre avec \\  $\lambda_{1}<\lambda_{2}< .....<\lambda_{n}$
+et soit $x^{*}$ une solution a notre systeme lineaire, donc $Ax^{*}=b$
+$$
+\begin{aligned}
+x^{k}-x^{*} &=x^{k-1}-x^{*}-\alpha\left(A x^{n-1}-b\right) \\
+&=x^{k-1}-x^{*}-\alpha\left(A x^{n-1}-A x^{*}\right) \\
+&=x^{n-1}-x^{*}-\alpha A\left(x^{n-1}-x^{*}\right) \\
+&=(G_{\alpha})\left(x^{n-1}-x^{*}\right) \\
+x^{n}-x^{*} &=(G_{\alpha})^{n}\left(x^{0}-x^{*}\right) \\
+{d'où \;\;} &\left\|x^{n}-x^{*}\right\| \leqslant\|G_{\alpha}\|^{n}\left\|x^{0}-x^{*}\right\|\\
+\text { pour avoir } &\left\|x^{n}-x^{*}\right\|\rightarrow 0, \text { il suffit que } 
+\|I d-\alpha A\|^{n} & \rightarrow 0 \\
+\end{aligned}
+$$
+or on sait que cela est equivalant a dire $e(G_{\alpha}) < 1$\\
+
+on a $\operatorname{sp}(G_{\alpha})=\left\{1-\alpha \lambda_{1}, \ldots, 1-\alpha \lambda_{m}\right\} $
+(Le spectre de $G_{\alpha}$ est l'ensemble des valeurs propres de $G_{\alpha}$)
+$$
+\begin{aligned}
+&e(I_{d}-\alpha A)<1\\
+\Leftrightarrow & \max \left\{\left|1-\alpha \lambda_{i}\right|, \ldots,\left|1-\alpha \lambda_{n}\right|\right\}<1 \\
+\Leftrightarrow &\left|1-\alpha \lambda_{i}\right|<1 \quad \forall i \in 1,... ,m\\
+\Leftrightarrow &-1<1-\alpha \lambda_{i}<1 \\
+\Leftrightarrow &-2<-\alpha \lambda_{i}<0 \\
+\Leftrightarrow & 0<\alpha \lambda_{i}<2 \\
+\Leftrightarrow & 0<\alpha<\frac{2}{\lambda_{i}} \\
+{et \;\; puisque \;\;}\frac{2}{\lambda_{m}} \leqslant \frac{2}{\lambda_{m-b}} \leqslant \cdots \leqslant \frac{2}{\lambda_{i}} \\
+\end{aligned}
+$$
+Il suffit que  $\alpha<\frac{2}{\lambda_{m}}$ pour avoir $e\left(I_{d}-\alpha A\right)<1$\\
+
+Danc la condition sur $\alpha $ pour que la méthode converge est $0<\alpha<\frac{2}{\lambda_{m}}$\\
+
+4- Cherchons la valeur optimal de $\alpha$ qui realise la convergence la plus rapide.
+
+on a 
+$$e(I-\alpha A)=\max \left\{\left|1-\alpha \lambda_{1}\right|, \ldots,\left|1-\alpha \lambda_{m}\right|\right\}$$\\
+Et puisque 
+$$1-\alpha \lambda_{m} \leqslant \cdots \leqslant 1-\alpha \lambda_{1}$$
+
+$\operatorname{car}\left(0<\lambda_{s} \leqslant \cdots \leqslant \lambda_{m}\right)$ $\;$
+Alors 
+$$e(I-\alpha A)=\max \left\{\left|1-\alpha \lambda_{1}\right|,\left|1-\alpha \lambda_{m}\right|\right\}$$
+Donc pour minimiser $e(I-\alpha A)$ on doit minimiser la fonctim de $\alpha$\\
+
+on pose $h(\alpha)=e(I-\alpha A)=\max \left\{\left|1-\alpha \lambda_{1}\right|,\left|1-\alpha \lambda_{n}\right|\right\}$
+$=\max \left\{h_{1}, h_{2}\right\}$\\
+avec $h_{1}=\left|1-\alpha \lambda_{1}\right|$ at $h_{2}=\left|1-\alpha \lambda_{n}\right|$\\
+
+pour cela on trace $h_{1}$ et $h_{2}$, puis graphiquement on trace $h$, ensuite on regarde où $h$ realise son minimum.\\
+
+\includegraphics[scale=0.50]{G4.png}~\\
+
+$h$ realise son minimum en l'intersection de $h_{1}$ et $h_{2}$\\
+
+$\begin{aligned} h_{1}=h_{2} & \Leftrightarrow 1-\alpha_{min} \lambda_{1}=-\left(1-\alpha_{min} \lambda_{n}\right) \\ & \Leftrightarrow 2-\alpha_{min} \lambda_{1}-\alpha_{min} \lambda_{n}=0 \\ & \Leftrightarrow \alpha_{min}=\frac{2}{\lambda_{1}+\lambda_{n}} \end{aligned}$\\
+
+Donc la vitesse maximal de convergence est obtenu pour $\alpha_{min}=\frac{2}{\lambda_{1}+\lambda_{n}} $
+
+5- Application sur le probleme poisson 1D\\
+
+\textbf{Algorithme sur Scilab :}
+
+\begin{lstlisting}
+//----------------------Richardson---------------------------
+
+/*Valeur retour:
+x: est la résolution du système
+k: est nombre d'intération à converger
+relres: l'erreur relative
+vec: vecteur de l'erreur relative
+*/
+function[x,relres,vec,k]=Richardson_P1D(A,b,tol,itmax,x0,alpha)
+/*
+x0: valeur initiale
+itmax: nombre maximum de l'itération
+tol: tolérance de l'erreur
+*/ 
+n=size(A,"r");
+vec = zeros(itmax,1);
+r=b-A*x0
+relres=norm(r)/norm(b);
+for k = 1:itmax-1 
+  k=k+1;
+  x=x0+alpha*r;
+  x0=x;
+  r=b-A*x0;
+  relres=norm(r)/norm(b);
+  if relres<tol
+    break
+  end
+  vec(k)=relres;
+end
+endfunction   
+\end{lstlisting}
+
+\textbf{Test et Validation}
+
+Pour tester notre algorithme j'ai creer la fonction test\_Richardson qui initilise notre matrice A du probleme poisson 1D ainsi le vecteur b et j'ai donné en parametres d'entrees :\\[0.2cm]
+\textbf{m}=3 //taille de la matrice\\
+\textbf{itmax}=100\\
+\textbf{tol}=1e-8\\
+\textbf{x0}=[1,1,1]'\\
+\textbf{alpha}=0.25\\
+
+\begin{lstlisting}
+//-------------------------------Test Richardson-----------------------------
+
+//initialisation de la matrice A
+
+function [A]=A_poisson1D(m)
+A = zeros(m, m);
+k=1
+while k <=m
+  A(k, k) = 2;
+  k=k+1
+end
+k=1
+while k <m
+  A(k + 1, k) = -1;
+  A(k, k + 1) = -1;
+  k=k+1;
+end
+endfunction
+
+//initialisation de b
+
+function [b] =b_poisson1D(m)
+b = zeros (m, 1);
+b(1) = -5;
+b(m) = 5;
+endfunction
+
+//------------------------Fonction test ------------------------
+/*
+cette fonction a pour but de test la methode de Richardson 
+
+itmax: nombre maximum de l'itération
+tol: tolérance de l'erreur
+*/
+//-------------initialisation de parametres d'entrées --------------------
+m=3
+itmax=100
+tol=1e-8
+x0=[1,1,1]'
+alpha=0.25
+
+function [x,relres,vec,k]=test_Richardson(m, itmax, tol,x0,alpha)
+
+A = A_poisson1D(m);
+disp(A)
+b =b_poisson1D(m)
+disp(b)
+[x,relres,vec,k]=Richardson_P1D(A,b,tol,itmax,x0,alpha)
+
+endfunction
+\end{lstlisting}
+
+
+"les resultats de test son dans le fichier $resultats\_test\_Richardson$ "\\
+
+En comparant les resultats de x de notre fonction de Richardson avec $x=A \backslash b$ , nous voyons qu'ils sont presque egale avec un certain erreur qu'on peut le valider, donc notre algorithme est fonctionnel.  
+
+\newpage
+
+
+\chapter{References et Annexe}
+
+\textbf{\Large References :}\\
+- \url{http://www.netlib.org/lapack/explore-html/d2/d3f/dgbmv_8f.html}
+- \url{https://www.ibm.com/docs/en/essl/6.2?topic=mvs-sgbmv-dgbmv-cgbmv-zgbmv-matrix-vector-product-general-band-matrix-its-transpose-its-conjugate-transpose}
+- \url{https://www.ibm.com/docs/en/essl/6.3?topic=matrices-how-leading-dimension-is-used}\\
+- Livre :Introduction aux méthodes numériques Par Franck Jedrzejewski · 2005
+
+
+
+\textbf{\Large Annexe}\\
+
+Dépot github : \url{https://github.com/Abdel-BHPC/Calcul_Num-rique_TP4.git}
+
+
+\end{document}
