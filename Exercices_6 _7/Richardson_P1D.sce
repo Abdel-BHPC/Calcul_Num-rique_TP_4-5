@@ -6,7 +6,7 @@
         relres: l’erreur relative
         vec: vecteur de l'erreur relative
     */
-function[x,relres,vec,it]=Richardson_P1D(A,b,tol,itmax,x0,alpha)
+function[x,relres,vec,k]=Richardson_P1D(A,b,tol,itmax,x0,alpha)
     /*
         x0: valeur initiale
         itmax: nombre maximum de l'itération
